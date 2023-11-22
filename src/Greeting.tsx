@@ -1,3 +1,5 @@
+import Owner from './Owner';
+
 interface GreetingProps {
   userName: string;
 }
@@ -5,7 +7,7 @@ export default function Greeting(props: GreetingProps) {
   return (
     <>
       <h1>Hello {props.userName} </h1>
-
+      <Owner user={props.userName} />
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing
         elit. Magnam deleniti molestias ratione quas
