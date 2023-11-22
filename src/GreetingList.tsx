@@ -1,10 +1,11 @@
 export default function GreetingList() {
-  let names = ['A', 'B', 'C'];
-  let nameViews = names.map((name, index) => {
+  const names = ['A', 'B', 'C'];
+
+  const nameViews = names.map((name, index) => {
     console.log('Name', name);
     return (
       <div>
-        {name} {index}
+        Hello {name} {index}
       </div>
     );
   });

@@ -4,9 +4,12 @@ interface GreetingProps {
   userName: string;
 }
 export default function Greeting(props: GreetingProps) {
+  const btn = <button>Click me {props.userName}</button>;
   return (
     <>
-      <h1>Hello {props.userName} </h1>
+      <h1>
+        Hello {props.userName} {btn}{' '}
+      </h1>
       <Owner user={props.userName} />
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing
