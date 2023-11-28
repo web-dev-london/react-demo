@@ -10,11 +10,12 @@ export default function GreetingList() {
     borderCollapse: 'collapse',
     backgroundColor: 'red',
   };
+  tableStyle.backgroundColor = 'yellow';
   const nameViews = names.map((name, index) => {
     console.log('Name', name);
     const tdStyle = {
       backgroundColor: 'blue',
-      ...tableStyle,
+      border: tableStyle.border,
       padding: '10px',
     };
     return (

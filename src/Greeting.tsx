@@ -1,4 +1,5 @@
 import Owner from './Owner';
+import { Heading, Text } from '@chakra-ui/react';
 
 interface GreetingProps {
   userName: string;
@@ -7,11 +8,11 @@ export default function Greeting(props: GreetingProps) {
   const btn = <button>Click me {props.userName}</button>;
   return (
     <>
-      <h1>
+      <Heading background='green'>
         Hello {props.userName} {btn}{' '}
-      </h1>
+      </Heading>
       <Owner user={props.userName} />
-      <p>
+      <Text>
         Lorem ipsum dolor sit amet consectetur adipisicing
         elit. Magnam deleniti molestias ratione quas
         explicabo deserunt debitis tenetur, perspiciatis
@@ -22,7 +23,7 @@ export default function Greeting(props: GreetingProps) {
         placeat autem tempore libero necessitatibus ex.
         Repudiandae harum nam molestias, nostrum quo ipsam
         in debitis officiis fuga.
-      </p>
+      </Text>
     </>
   );
 }
