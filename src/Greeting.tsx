@@ -1,11 +1,11 @@
 import Owner from './Owner';
-import { Heading, Text } from '@chakra-ui/react';
+import { Heading, Text, Button } from '@chakra-ui/react';
 
 interface GreetingProps {
   userName: string;
 }
 export default function Greeting(props: GreetingProps) {
-  const btn = <button>Click me {props.userName}</button>;
+  const btn = <Button>Click me {props.userName}</Button>;
   return (
     <>
       <Heading background='green'>

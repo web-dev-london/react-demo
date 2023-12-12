@@ -1,31 +1,57 @@
-import { CSSProperties } from 'react';
+import {
+  Table,
+  Thead,
+  Tbody,
+  Tfoot,
+  Tr,
+  Th,
+  Td,
+  TableCaption,
+  TableContainer,
+} from '@chakra-ui/react';
+import { ClickButtonView } from './Views/ClickButtonView';
 export default function GreetingList() {
   const names = [
     'David Young Stephenson',
     'Murod Akhmedov Olimovich',
     'C',
+    'Murod Akhmedov Olimovich',
   ];
-  const tableStyle: CSSProperties = {
-    border: '1px solid black',
-    borderCollapse: 'collapse',
-    backgroundColor: 'red',
-  };
-  tableStyle.backgroundColor = 'yellow';
+
   const nameViews = names.map((name, index) => {
-    console.log('Name', name);
-    const tdStyle = {
-      backgroundColor: 'blue',
-      border: tableStyle.border,
-      padding: '10px',
-    };
     return (
-      <tr>
-        <td style={tdStyle}>Hello {name}</td>
-        <td style={tdStyle}> {index} </td>
-      </tr>
+      <Tr key={index}>
+        <Td>Hello {name}</Td>
+        <Td> {index} </Td>
+      </Tr>
     );
   });
-  console.log('NameViews', nameViews);
 
-  return <table style={tableStyle}>{nameViews}</table>;
+  return (
+    <>
+      <ClickButtonView />
+      <TableContainer>
+        <Table
+          size='sm'
+          variant='striped'
+          colorScheme='red'
+        >
+          <TableCaption>List of Greeting!</TableCaption>
+          <Thead>
+            <Tr>
+              <Th>Greeting</Th>
+              <Th>Index</Th>
+            </Tr>
+          </Thead>
+          <Tbody>{nameViews}</Tbody>
+          <Tfoot>
+            <Tr>
+              <Th>Greeting</Th>
+              <Th>Index</Th>
+            </Tr>
+          </Tfoot>
+        </Table>
+      </TableContainer>
+    </>
+  );
 }
