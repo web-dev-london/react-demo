@@ -11,7 +11,6 @@ import {
 } from '@chakra-ui/react';
 // let count = 0;
 export function ClickButtonView() {
-  console.log('Render');
   const [count, setCount] = useState(0);
   const [open, setOpen] = useState(false);
   console.log('Open', open);
@@ -43,18 +42,14 @@ export function ClickButtonView() {
         <ModalContent>
           <ModalHeader>Modal Title</ModalHeader>
           <ModalCloseButton />
-          <ModalBody></ModalBody>
+          <ModalBody>hello</ModalBody>
 
           <ModalFooter>
             <Button
               colorScheme='blue'
-              mr={3}
               onClick={handleClose}
             >
               Close
-            </Button>
-            <Button variant='ghost'>
-              Secondary Action
             </Button>
           </ModalFooter>
         </ModalContent>
