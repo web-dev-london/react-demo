@@ -1,9 +1,9 @@
-import ModifyNameView from './Views/ModifyNameView';
+import BlogFormView from './Views/BlogFormView';
 
 export default function App() {
   return (
     <>
-      <ModifyNameView />
+      <BlogFormView />
     </>
   );
 }

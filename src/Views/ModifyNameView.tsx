@@ -16,7 +16,10 @@ import {
 const roles: Record<string, string | undefined> = {
   Murod: 'owner',
   David: 'teacher',
+  John: undefined,
+  1: '3',
 };
+
 
 export default function ModifyNameView() {
   const [listOfNames, setListOfNames] = useState<
