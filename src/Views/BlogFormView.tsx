@@ -4,7 +4,12 @@ import {
   Input,
   Text,
 } from '@chakra-ui/react';
-import { ChangeEvent, FormEvent, useState } from 'react';
+import {
+  ChangeEvent,
+  FormEvent,
+  Fragment,
+  useState,
+} from 'react';
 const initialArticles = [
   {
     title: 'Javascript is Fun',
@@ -17,6 +22,17 @@ const initialArticles = [
     body: 'In the Future most jobs will use Typescript!',
   },
 ];
+type StringRecord = Record<string, string>;
+const roles: StringRecord = {
+  Murod: 'Owner',
+  David: 'Teacher',
+};
+
+function AuthorRole(props: { author: string }) {
+  const role = roles[props.author];
+  if (role != null) return role;
+  return 'Unknow User';
+}
 
 export default function BlogFormView() {
   const [title, setTitle] = useState('');
@@ -25,16 +41,32 @@ export default function BlogFormView() {
   const [articles, setArticles] = useState(
     initialArticles,
   );
-
+  // console.log('Render');
   const articlesViews = articles.map((article, index) => {
     return (
-      <>
+      <Fragment key={index}>
         <Heading size='lg'>{article.title}</Heading>
-        <Heading size='md'>{article.author}</Heading>
+        <Heading size='md'>
+          {article.author}{' '}
+          <AuthorRole author={article.author} />
+        </Heading>
         <Text>{article.body}</Text>
-      </>
+      </Fragment>
     );
   });
+
+  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setArticles((current) => {
+      const newArticle = {
+        title: title,
+        author: author,
+        body: body,
+      };
+      const newArticles = [...current, newArticle];
+      return newArticles;
+    });
+  }
 
   function handleTitle(e: ChangeEvent<HTMLInputElement>) {
     setTitle(e.target.value);
@@ -56,7 +88,7 @@ export default function BlogFormView() {
   return (
     <>
       <Heading>Blog Form</Heading>
-      <form>
+      <form onSubmit={handleSubmit}>
         <Input
           onChange={handleTitle}
           value={title}
