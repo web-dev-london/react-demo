@@ -10,6 +10,8 @@ import {
   Fragment,
   useState,
 } from 'react';
+import AuthorRoleView from './AuthorRoleView';
+import ArticleView from './ArticleView';
 const initialArticles = [
   {
     title: 'Javascript is Fun',
@@ -22,17 +24,6 @@ const initialArticles = [
     body: 'In the Future most jobs will use Typescript!',
   },
 ];
-type StringRecord = Record<string, string>;
-const roles: StringRecord = {
-  Murod: 'Owner',
-  David: 'Teacher',
-};
-
-function AuthorRole(props: { author: string }) {
-  const role = roles[props.author];
-  if (role != null) return role;
-  return 'Unknow User';
-}
 
 export default function BlogFormView() {
   const [title, setTitle] = useState('');
@@ -44,14 +35,12 @@ export default function BlogFormView() {
   // console.log('Render');
   const articlesViews = articles.map((article, index) => {
     return (
-      <Fragment key={index}>
-        <Heading size='lg'>{article.title}</Heading>
-        <Heading size='md'>
-          {article.author}{' '}
-          <AuthorRole author={article.author} />
-        </Heading>
-        <Text>{article.body}</Text>
-      </Fragment>
+      <ArticleView
+        key={index}
+        title={article.title}
+        author={article.author}
+        body={article.body}
+      />
     );
   });
 
