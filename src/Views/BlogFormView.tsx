@@ -12,49 +12,23 @@ import {
 } from 'react';
 import AuthorRoleView from './AuthorRoleView';
 import ArticleView from './ArticleView';
-const initialArticles = [
-  {
-    title: 'Javascript is Fun',
-    author: 'Murod',
-    body: 'Beacause Javascript is Dynamic',
-  },
-  {
-    title: 'Typescript is valuable',
-    author: 'David',
-    body: 'In the Future most jobs will use Typescript!',
-  },
-];
 
-export default function BlogFormView() {
+export default function BlogFormView(props: {
+  createArticle: (props: {
+    title: string;
+    author: string;
+    body: string;
+  }) => void;
+}) {
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
   const [body, setBody] = useState('');
-  const [articles, setArticles] = useState(
-    initialArticles,
-  );
+
   // console.log('Render');
-  const articlesViews = articles.map((article, index) => {
-    return (
-      <ArticleView
-        key={index}
-        title={article.title}
-        author={article.author}
-        body={article.body}
-      />
-    );
-  });
 
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setArticles((current) => {
-      const newArticle = {
-        title: title,
-        author: author,
-        body: body,
-      };
-      const newArticles = [...current, newArticle];
-      return newArticles;
-    });
+    props.createArticle({ title, author, body });
   }
 
   function handleTitle(e: ChangeEvent<HTMLInputElement>) {
@@ -76,7 +50,7 @@ export default function BlogFormView() {
 
   return (
     <>
-      <Heading>Blog Form</Heading>
+      <Heading size='lg'>Blog Form</Heading>
       <form onSubmit={handleSubmit}>
         <Input
           onChange={handleTitle}

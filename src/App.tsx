@@ -1,9 +1,9 @@
-import BlogFormView from './Views/BlogFormView';
+import BlogView from './Views/BlogView';
 
 export default function App() {
   return (
     <>
-      <BlogFormView />
+      <BlogView />
     </>
   );
 }

@@ -8,8 +8,8 @@ export default function ArticleView(props: {
 }) {
   return (
     <>
-      <Heading size='lg'>{props.title}</Heading>
-      <Heading size='md'>
+      <Heading size='md'>{props.title}</Heading>
+      <Heading size='sm'>
         {props.author}{' '}
         <AuthorRoleView author={props.author} />
       </Heading>
