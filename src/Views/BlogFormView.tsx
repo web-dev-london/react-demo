@@ -1,17 +1,5 @@
-import {
-  Button,
-  Heading,
-  Input,
-  Text,
-} from '@chakra-ui/react';
-import {
-  ChangeEvent,
-  FormEvent,
-  Fragment,
-  useState,
-} from 'react';
-import AuthorRoleView from './AuthorRoleView';
-import ArticleView from './ArticleView';
+import { Button, Heading, Input } from '@chakra-ui/react';
+import { ChangeEvent, FormEvent, useState } from 'react';
 
 export default function BlogFormView(props: {
   createArticle: (props: {
@@ -70,7 +58,6 @@ export default function BlogFormView(props: {
         <Button type='submit'>Submit</Button>
       </form>
       <Button onClick={reset}>Reset</Button>
-      {articlesViews}
     </>
   );
 }

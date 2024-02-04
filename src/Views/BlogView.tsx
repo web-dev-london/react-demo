@@ -19,6 +19,7 @@ export default function BlogView() {
   const [articles, setArticles] = useState(
     initialArticles,
   );
+  console.log('articles', articles);
   function createArticle(props: {
     title: string;
     author: string;
@@ -38,7 +39,7 @@ export default function BlogView() {
     <>
       <Heading>Blog</Heading>
       <BlogFormView createArticle={createArticle} />
-      <ArticleListView />
+      <ArticleListView articles={articles} />
     </>
   );
 }
