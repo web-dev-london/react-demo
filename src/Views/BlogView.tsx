@@ -2,6 +2,7 @@ import { Heading } from '@chakra-ui/react';
 import BlogFormView from './BlogFormView';
 import ArticleListView from './ArticleListView';
 import { useState } from 'react';
+import { Routes, Route } from 'react-router-dom';
 
 const initialArticles = [
   {
@@ -19,7 +20,7 @@ export default function BlogView() {
   const [articles, setArticles] = useState(
     initialArticles,
   );
-  console.log('articles', articles);
+
   function createArticle(props: {
     title: string;
     author: string;
@@ -38,8 +39,20 @@ export default function BlogView() {
   return (
     <>
       <Heading>Blog</Heading>
-      <BlogFormView createArticle={createArticle} />
-      <ArticleListView articles={articles} />
+      <Routes>
+        <Route
+          path='/form'
+          element={
+            <BlogFormView createArticle={createArticle} />
+          }
+        />
+        <Route
+          path='/list'
+          element={
+            <ArticleListView articles={articles} />
+          }
+        />
+      </Routes>
     </>
   );
 }

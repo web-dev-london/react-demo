@@ -3,7 +3,7 @@ import ArticleView from './ArticleView';
 import { Article } from '../types';
 
 export default function ArticleListView(props: {
-  articles: string[];
+  articles: Article[];
 }) {
   console.log('props', props);
   const articleViews = props.articles.map(
