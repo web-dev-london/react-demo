@@ -1,6 +1,6 @@
 import { Heading } from '@chakra-ui/react';
-import ArticleView from './ArticleView';
 import { Article } from '../types';
+import ArticleSummaryView from './ArticleSummaryView';
 
 export default function ArticleListView(props: {
   articles: Article[];
@@ -9,11 +9,12 @@ export default function ArticleListView(props: {
   const articleViews = props.articles.map(
     (article, index) => {
       return (
-        <ArticleView
+        <ArticleSummaryView
           key={index}
+          index={index}
           title={article.title}
           author={article.author}
-          body={article.body}
+          // body={article.body}
         />
       );
     },
