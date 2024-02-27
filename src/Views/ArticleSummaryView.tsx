@@ -4,15 +4,15 @@ import Clink from 'clink-react';
 export default function ArticleSummaryView(props: {
   title: string;
   author: string;
-  index: number;
+  id: number;
 }) {
   
   return (
     <>
-      <Clink to={`/article/${props.index}`}>
-        <Heading size='md'>
+      <Clink to={`/article/${props.id}`}>
+        <Heading size='sm'>
           {props.title} <Badge>{props.author}</Badge> [
-          {props.index}]
+          {props.id}]
         </Heading>
       </Clink>
     </>

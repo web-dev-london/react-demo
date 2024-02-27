@@ -12,16 +12,19 @@ const initialArticles = [
     title: 'Javascript is Fun',
     author: 'Murod',
     body: 'Beacause Javascript is Dynamic',
+    id: 2,
   },
   {
     title: 'Typescript is valuable',
     author: 'David',
     body: 'In the Future most jobs will use Typescript!',
+    id: 1,
   },
   {
     title: 'React JS is Popular',
     author: 'David',
     body: 'In the Future most jobs will use Typescript!',
+    id: 0,
   },
 ];
 export default function BlogView() {
@@ -39,6 +42,7 @@ export default function BlogView() {
         title: props.title,
         author: props.author,
         body: props.body,
+        id: current.length,
       };
       const newArticles = [...current, newArticle];
       return newArticles;
@@ -60,7 +64,7 @@ export default function BlogView() {
         <Route
           path='/article/:index'
           element={
-            <ArticlePageView listArticle={articles} />
+            <ArticlePageView allArticles={articles} />
           }
         />
         <Route

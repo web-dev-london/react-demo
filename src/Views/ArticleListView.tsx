@@ -11,7 +11,7 @@ export default function ArticleListView(props: {
       return (
         <ArticleSummaryView
           key={index}
-          index={index}
+          id={article.id}
           title={article.title}
           author={article.author}
           // body={article.body}
