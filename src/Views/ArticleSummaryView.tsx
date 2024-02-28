@@ -10,7 +10,7 @@ export default function ArticleSummaryView(props: {
   return (
     <>
       <Clink to={`/article/${props.id}`}>
-        <Heading size='sm'>
+        <Heading background='orange' size='sm'>
           {props.title} <Badge>{props.author}</Badge> [
           {props.id}]
         </Heading>

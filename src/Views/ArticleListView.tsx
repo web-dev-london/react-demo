@@ -1,28 +1,14 @@
-import { Heading } from '@chakra-ui/react';
+import { Box, Heading } from '@chakra-ui/react';
 import { Article } from '../types';
-import ArticleSummaryView from './ArticleSummaryView';
-
+import SummaryListView from './SummaryListView';
 export default function ArticleListView(props: {
   articles: Article[];
 }) {
-  console.log('props', props);
-  const articleViews = props.articles.map(
-    (article, index) => {
-      return (
-        <ArticleSummaryView
-          key={index}
-          id={article.id}
-          title={article.title}
-          author={article.author}
-          // body={article.body}
-        />
-      );
-    },
-  );
+  
   return (
-    <>
+    <Box background='yellow'>
       <Heading size='lg'>Articles</Heading>
-      {articleViews}
-    </>
+    <SummaryListView articles={props.articles}/>
+    </Box>
   );
 }

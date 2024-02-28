@@ -1,4 +1,4 @@
-import { HStack, Heading } from '@chakra-ui/react';
+import { Container, HStack, Heading } from '@chakra-ui/react';
 import BlogFormView from './BlogFormView';
 import ArticleListView from './ArticleListView';
 import { useState } from 'react';
@@ -49,7 +49,7 @@ export default function BlogView() {
     });
   }
   return (
-    <>
+    <Container background='red'>
       <HStack>
         <Clink to='/'>
           <Heading>Blog</Heading>
@@ -89,6 +89,6 @@ export default function BlogView() {
           }
         />
       </Routes>
-    </>
+    </Container>
   );
 }

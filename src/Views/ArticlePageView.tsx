@@ -1,8 +1,8 @@
-import { Heading } from '@chakra-ui/react';
+import { Box, Heading } from '@chakra-ui/react';
 import { Article } from '../types';
 import ArticleView from './ArticleView';
 import { useParams } from 'react-router-dom';
-import ArticleSummaryView from './ArticleSummaryView';
+import SummaryListView from './SummaryListView';
 export default function ArticlePageView(props: {
   allArticles: Article[];
 }) {
@@ -13,31 +13,21 @@ export default function ArticlePageView(props: {
     return <>Article missing!</>;
   }
   // console.log('Full List',props.allArticles);
-  const authorArticles = props.allArticles.filter((el) =>{
-      return article.author === el.author
+  const authorArticles = props.allArticles.filter((el) => {
+    return article.author === el.author
   })
-  // console.log('Subset of Article',authorArticles);
-  const authorArticleViews = authorArticles.map((article, index) =>{
-    return (
-      <ArticleSummaryView
-      key={index}
-      id={article.id}
-      title={article.title}
-      author={article.author}
-      />
-    )
-  })
+
   return (
-    <>
+    <Box background='purple'>
       <ArticleView
         title={article.title}
         author={article.author}
         body={article.body}
       />
       <Heading size='md'>
-      Articles authored by {article.author}:
+        Articles authored by {article.author}:
       </Heading>
-      {authorArticleViews}
-    </>
+      <SummaryListView articles={authorArticles} />
+    </Box>
   );
 }

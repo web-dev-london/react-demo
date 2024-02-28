@@ -1,4 +1,4 @@
-import { Button, Heading, Input } from '@chakra-ui/react';
+import { Box, Button, Heading, Input } from '@chakra-ui/react';
 import { ChangeEvent, FormEvent, useState } from 'react';
 
 export default function BlogFormView(props: {
@@ -37,7 +37,7 @@ export default function BlogFormView(props: {
   }
 
   return (
-    <>
+    <Box background='green'>
       <Heading size='lg'>Blog Form</Heading>
       <form onSubmit={handleSubmit}>
         <Input
@@ -58,6 +58,6 @@ export default function BlogFormView(props: {
         <Button type='submit'>Submit</Button>
       </form>
       <Button onClick={reset}>Reset</Button>
-    </>
+    </Box>
   );
 }
